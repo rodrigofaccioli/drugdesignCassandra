@@ -1,4 +1,8 @@
 {
+  "drugdesignCassandra":{
+    "projectVersion" : "1.0.0",
+    "sourcePath" : "src/"
+  },
   "drugdesignAnalysisFiles":{
     "rootPathAnalysis" : "test/analysis",
     "hydrogenAllRes" : "all-residue_hbonds_4.0A_30.0deg.dat",
@@ -6,10 +10,12 @@
   },
   "virtualScreeningData":{
     "vsId" : "spark_test",
-    "drugdesignVersion" : "1.0.0"
+    "drugdesignVersion" : "1.0.0",
+    "separatorFilenameMode" : "+----+",
+    "separatorReceptor" : "_-_"
   },
   "cassandraDB":{
     "keyspace" : "spark_test",
-    "nodeIP" : "127.0.0.1" 
+    "nodeIP" : "127.0.0.1"
   }
 }

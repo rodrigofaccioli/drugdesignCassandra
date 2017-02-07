@@ -13,3 +13,9 @@ angle double,
 pose text,
 	PRIMARY KEY(pose)
  );
+
+CREATE TABLE hydrogen_all_res_histogram_recep_mol(
+  recep_mol text,
+  number int,
+  PRIMARY KEY(recep_mol)
+);
