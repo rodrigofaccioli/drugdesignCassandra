@@ -19,3 +19,9 @@ CREATE TABLE hydrogen_all_res_histogram_recep_mol(
   number int,
   PRIMARY KEY(recep_mol)
 );
+
+CREATE TABLE hydrogen_all_res_histogram_molecule(
+  molecule text,
+  number int,
+  PRIMARY KEY(molecule)
+);

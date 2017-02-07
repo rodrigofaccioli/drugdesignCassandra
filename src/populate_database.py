@@ -47,6 +47,9 @@ def main():
     #Creating Histogram of hydrogen_all_res based on receptor_molecule
     hydrogen.save_histogram_hydrogen_all_res_receptor_molecule(separator_filename_mode, sql, df_hydrogen_all_res)
 
+    #Creating Histogram of hydrogen_all_res based on molecule
+    hydrogen.save_histogram_hydrogen_all_res_molecule(separator_receptor, separator_filename_mode, sql, df_hydrogen_all_res)
+
     #Closing database connection
     hydrogen.close_connection()
 
