@@ -6,7 +6,7 @@
   "drugdesignAnalysisFiles":{
     "rootPathAnalysis" : "test/analysis",
     "hydrogenAllRes" : "all-residue_hbonds_4.0A_30.0deg.dat",
-    "buriedAreasAllRess": "all-residue_buried_areas.dat"
+    "buriedAreasAllRes": "all-residue_buried_areas.dat"
   },
   "virtualScreeningData":{
     "vsId" : "spark_test",

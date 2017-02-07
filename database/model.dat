@@ -25,3 +25,11 @@ CREATE TABLE hydrogen_all_res_histogram_molecule(
   number int,
   PRIMARY KEY(molecule)
 );
+
+CREATE TABLE buried_area_all_res(
+  residue text,
+  buried_area_residue double,
+  residue_sasa_buried double,
+  pose text,
+  PRIMARY KEY(pose)
+);
