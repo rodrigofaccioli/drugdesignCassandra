@@ -1,0 +1,15 @@
+{
+  "drugdesignAnalysisFiles":{
+    "rootPathAnalysis" : "test/analysis",
+    "hydrogenAllRes" : "all-residue_hbonds_4.0A_30.0deg.dat",
+    "buriedAreasAllRess": "all-residue_buried_areas.dat"
+  },
+  "virtualScreeningData":{
+    "vsId" : "spark_test",
+    "drugdesignVersion" : "1.0.0"
+  },
+  "cassandraDB":{
+    "keyspace" : "spark_test",
+    "nodeIP" : "127.0.0.1" 
+  }
+}

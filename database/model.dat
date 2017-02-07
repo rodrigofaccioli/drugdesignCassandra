@@ -1,0 +1,15 @@
+CREATE KEYSPACE <SET Virtual Screening ID>
+  WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
+
+USE <SET KEYSPACE>;
+
+CREATE TABLE hydrogen_all_res(
+ligand_atom text,
+accept_or_donate text,
+receptor_residue text,
+receptor_atom text,
+distance double,
+angle double,
+pose text,
+	PRIMARY KEY(pose)
+ );
