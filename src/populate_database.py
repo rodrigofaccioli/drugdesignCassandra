@@ -3,7 +3,7 @@ from pyspark import SparkContext, SparkConf, SparkFiles
 from pyspark.sql import SQLContext
 
 import os, sys
-from load_config import load_config
+from loadConfig import load_config
 from hydrogen import Hydrogen
 
 def main():
@@ -27,7 +27,6 @@ def main():
     sc.addPyFile(os.path.join(drugdesignCassandra_source_path,"commonDatabase.py"))
     sc.addPyFile(os.path.join(drugdesignCassandra_source_path,"hydrogen.py"))
 
-
     # Creating Hydrogen object
     hydrogen = Hydrogen()
     hydrogen.set_cassandra_client(nodeIP, keyspace)
@@ -35,7 +34,6 @@ def main():
     #Reading hydrogen all residue file and converting it as dataframe
     df_hydrogen_all_res = sql.createDataFrame( hydrogen.load_file_all_residue_hbonds(sc, hydrogen_fileName) )
     df_hydrogen_all_res.createOrReplaceTempView("hydrogen_all_resFILE")
-
 
     #Saving hydrogen_all_res Cassandra Table
     hydrogen.save_hydrogen_all_res_table(sql, df_hydrogen_all_res)
@@ -49,6 +47,7 @@ def main():
 
     #Creating Histogram of hydrogen_all_res based on molecule
     hydrogen.save_histogram_hydrogen_all_res_molecule(separator_receptor, separator_filename_mode, sql, df_hydrogen_all_res)
+#############################################################################################
 
     #Closing database connection
     hydrogen.close_connection()
