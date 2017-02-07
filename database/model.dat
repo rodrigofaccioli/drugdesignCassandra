@@ -39,3 +39,9 @@ CREATE TABLE buried_area_all_res_histogram_recep_mol(
   number int,
   PRIMARY KEY(recep_mol)
 );
+
+CREATE TABLE buried_area_all_res_histogram_molecule(
+  molecule text,
+  number int,
+  PRIMARY KEY(molecule)
+);

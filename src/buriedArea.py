@@ -60,3 +60,24 @@ class BuriedArea(CommonDatabase):
 				row.number
 				))
 			)
+
+    def save_histogram_buried_area_all_res_molecule(self, separator_receptor, separator_filename_mode, sqlctx, df):
+		table = self.client.get_keyspace() + "." + "buried_area_all_res_histogram_molecule"
+		buried_areas_all_res = sqlctx.sql("select residue, buried_area_residue, residue_sasa_buried, pose from buried_area_all_resFILE")
+		buried_areas_all_resRDD = buried_areas_all_res.rdd.map(lambda p: Row(molecule=get_molecule_name_from_filename_mode(separator_receptor, separator_filename_mode, str(p[3]) ), residue=str(p[0]), buried_area_residue=float(p[1]), residue_sasa_buried=float(p[2]), pose=str(p[3]) ))
+		buried_areas_all_res = sqlctx.createDataFrame(buried_areas_all_resRDD)
+		buried_areas_all_res.createOrReplaceTempView("buried_area_all_res_histogram_molecule")
+		buried_areas_all_res = sqlctx.sql("select molecule, count(molecule) as number from buried_area_all_res_histogram_molecule group by molecule")
+		for row in buried_areas_all_res.collect():
+			sql_query = """
+				INSERT INTO @$$$$$$$$$$$$@
+				(molecule, number)
+				VALUES (?, ?);
+			"""
+			sql_query = sql_query.replace("@$$$$$$$$$$$$@", table)
+			bound_statement = self.client.session.prepare(sql_query)
+			self.client.session.execute( bound_statement.bind((
+				row.molecule,
+				row.number
+				))
+			)
