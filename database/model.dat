@@ -33,3 +33,9 @@ CREATE TABLE buried_area_all_res(
   pose text,
   PRIMARY KEY(pose)
 );
+
+CREATE TABLE buried_area_all_res_histogram_recep_mol(
+  recep_mol text,
+  number int,
+  PRIMARY KEY(recep_mol)
+);

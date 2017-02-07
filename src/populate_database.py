@@ -65,6 +65,9 @@ def main():
     #Saving buried_area_all_res Cassandra Table
     buried_area.save_buried_area_all_res_table(sql, df_buried_area_all_res)
 
+    #Creating Histogram of hydrogen_all_res based on receptor_molecule
+    buried_area.save_histogram_buried_area_all_res_receptor_molecule(separator_filename_mode, sql, df_buried_area_all_res)
+
     #Closing database connection
     buried_area.close_connection()
 
